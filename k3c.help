@@ -1,0 +1,334 @@
+[200~root@k3c:/home/ubuntu/Public/k3c/bin# ./k3c help
+NAME:
+   k3c - Lightweight local container platform
+
+USAGE:
+   k3c [global options] command [command options] [arguments...]
+
+VERSION:
+   v0.2.1 (89c4439a1c700a572c9c33078385f5b87c33d60c)
+
+COMMANDS:
+   create              Create a new container
+   attach              Attach local standard input, output, and error streams to a running container
+   stop                Stop one or more running containers
+   start               Start one or more stopped containers
+   logs                Fetch the logs of a container
+   rm                  Remove one or more containers
+   exec                Run a command in a running container
+   run                 Run a command in a new container
+   ps                  List containers
+   build               Build an image from a Dockerfile
+   images              List images
+   tag                 Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+   pull                Pull an image or a repository from a registry
+   rmi                 Remove one or more images
+   push                Push an image or a repository to a registry
+   inspect             Return low-level information on k3c objects
+   events              Get real time events from the server
+   daemon              Run the container daemon
+   volume, volumes, v  Manage volumes
+   help, h             Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --debug              (default: false)
+   --debug-level value  (default: 7)
+   --help, -h           show help (default: false)
+
+NAME:
+   k3c attach - Attach local standard input, output, and error streams to a running container
+
+USAGE:
+   k3c attach [command options] [arguments...]
+
+DESCRIPTION:
+   k3c attach [OPTIONS] CONTAINER
+
+OPTIONS:
+   --no-stdin  Do not attach STDIN (default: false)
+   --help, -h  show help (default: false)
+   
+NAME:
+   k3c stop - Stop one or more running containers
+
+USAGE:
+   k3c stop [command options] [arguments...]
+
+DESCRIPTION:
+   k3c stop [OPTIONS] CONTAINER [CONTAINER...]
+
+OPTIONS:
+   --time value, -t value  Seconds to wait for stop before killing it (default: 10)
+   --help, -h              show help (default: false)
+   
+NAME:
+   k3c start - Start one or more stopped containers
+
+USAGE:
+   k3c start [command options] [arguments...]
+
+DESCRIPTION:
+   k3c start [OPTIONS] CONTAINER [CONTAINER...]
+
+OPTIONS:
+   --attach, -a       Attach STDOUT/STDERR and forward signals (default: false)
+   --interactive, -i  Attach container's STDIN (default: false)
+   --help, -h         show help (default: false)
+   
+NAME:
+   k3c logs - Fetch the logs of a container
+
+USAGE:
+   k3c logs [command options] [arguments...]
+
+DESCRIPTION:
+   k3c logs [OPTIONS] CONTAINER
+
+OPTIONS:
+   --follow, -f      Follow log output (default: false)
+   --since value     Show logs since timestamp (e.g. 2013-01-02T13:23:37) or relative (e.g. 42m for 42 minutes)
+   --tail value      Number of lines to show from the end of the logs (default 'all') (default: 0)
+   --timestamps, -t  Show timestamps (default: false)
+   --help, -h        show help (default: false)
+   
+NAME:
+   k3c rm - Remove one or more containers
+
+USAGE:
+   k3c rm [command options] [arguments...]
+
+DESCRIPTION:
+   k3c rm [OPTIONS] CONTAINER [CONTAINER...]
+
+OPTIONS:
+   --force, -f    Force the removal of a running container (uses SIGKILL) (default: false)
+   --volumes, -v  Remove the volumes associated with the container (default: false)
+   --help, -h     show help (default: false)
+   
+NAME:
+   k3c exec - Run a command in a running container
+
+USAGE:
+   k3c exec [command options] [arguments...]
+
+DESCRIPTION:
+   k3c exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+OPTIONS:
+   --interactive, -i  Keep STDIN open even if not attached (default: false)
+   --tty, -t          Allocate a pseudo-TTY (default: false)
+   --help, -h         show help (default: false)
+   
+NAME:
+   k3c run - Run a command in a new container
+
+USAGE:
+   k3c run [command options] [arguments...]
+
+DESCRIPTION:
+   k3c run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+OPTIONS:
+   --cap-add value               Add Linux capabilities
+   --cap-drop value              Drop Linux capabilities
+   --cgroup-parent value         Optional parent cgroup for the container
+   --cpu-period value            Limit CPU CFS (Completely Fair Scheduler) period (default: 0)
+   --cpu-quota value             Limit CPU CFS (Completely Fair Scheduler) quota (default: 0)
+   --cpu-shares value, -c value  CPU shares (relative weight) (default: 0)
+   --cpuset-cpus value           CPUs in which to allow execution (0-3, 0,1)
+   --cpuset-mems value           MEMs in which to allow execution (0-3, 0,1)
+   --cpus value                  Number of CPUs
+   --oom-score-adj value         Tune host's OOM preferences (-1000 to 1000) (default: 0)
+   --label value, -l value       Set meta data on a container
+   --label-file value            Read in a line delimited file of labels
+   --dns value                   Set custom DNS servers
+   --dns-option value            Set DNS options
+   --dns-search value            Set custom DNS search domains
+   --env value, -e value         Set environment variables
+   --env-file value              Read in a file of environment variables
+   --entrypoint value            Overwrite the default ENTRYPOINT of the image
+   --group-add value             Add additional groups to join
+   --init                        Run an init inside the container that forwards signals and reaps processes (default: false)
+   --hostname value              Container host name
+   --interactive, -i             Keep STDIN open even if not attached (default: false)
+   --name value                  Assign a name to the container
+   --read-only                   Mount the container's root filesystem as read only (default: false)
+   --runtime value               Runtime to use for this container
+   --sysctl value                Sysctl options (default map[])
+   --tty, -t                     Allocate a pseudo-TTY (default: false)
+   --user value, -u value        Username or UID (format: <name|uid>[:<group|gid>])
+   --workdir value, -w value     Working directory inside the container
+   --pid value                   PID namespace to use
+   --net value                   Connect a container to a network
+   --ipc value                   IPC mode to use
+   --privileged                  Give extended privileges to this container (default: false)
+   --memory value, -m value      Memory limit
+   --volume value, -v value      Bind mount a volume (format: [/host-src:]/container-dest[:ro])
+   --publish value, -p value     Publish a container's port(s) to the host (format [src:]dst[/tcp|/udp])
+   --detach, -d                  Run container in background and print container ID (default: false)
+   --help, -h                    show help (default: false)
+   
+NAME:
+   k3c ps - List containers
+
+USAGE:
+   k3c ps [command options] [arguments...]
+
+DESCRIPTION:
+   k3c ps [OPTIONS] 
+
+OPTIONS:
+   --all, -a       Show all containers (default: false)
+   --format value  Pretty-print containers using a Go template
+   --no-trunc      Don't truncate output (default: false)
+   --quiet, -q     Only show numeric IDs (default: false)
+   --help, -h      show help (default: false)
+   
+NAME:
+   k3c images - List images
+
+USAGE:
+   k3c images [command options] [arguments...]
+
+DESCRIPTION:
+   k3c images [OPTIONS] [REPOSITORY[:TAG]]
+
+OPTIONS:
+   --all, -a       Show all images (default hides intermediate images) (default: false)
+   --digests       Show digests (default: false)
+   --format value  Pretty-print images using a Go template
+   --no-trunc      Don't truncate output (default: false)
+   --quiet, -q     Only show numeric IDs (default: false)
+   --help, -h      show help (default: false)
+   
+NAME:
+   k3c tag - Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+USAGE:
+   k3c tag [command options] [arguments...]
+
+DESCRIPTION:
+   k3c tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+OPTIONS:
+   --help, -h  show help (default: false)
+   
+NAME:
+   k3c pull - Pull an image or a repository from a registry
+
+USAGE:
+   k3c pull [command options] [arguments...]
+
+DESCRIPTION:
+   k3c pull [OPTIONS] NAME[:TAG|@DIGEST]
+
+OPTIONS:
+   --quiet, -q  Suppress verbose output (default: false)
+   --help, -h   show help (default: false)
+   
+NAME:
+   k3c rmi - Remove one or more images
+
+USAGE:
+   k3c rmi [command options] [arguments...]
+
+DESCRIPTION:
+   k3c rmi [OPTIONS] IMAGE [IMAGE...]
+
+OPTIONS:
+   --help, -h  show help (default: false)
+   
+NAME:
+   k3c push - Push an image or a repository to a registry
+
+USAGE:
+   k3c push [command options] [arguments...]
+
+DESCRIPTION:
+   k3c push [OPTIONS] NAME[:TAG]
+
+OPTIONS:
+   --quiet, -q  Suppress verbose output (default: false)
+   --help, -h   show help (default: false)
+   
+NAME:
+   k3c inspect - Return low-level information on k3c objects
+
+USAGE:
+   k3c inspect [command options] [arguments...]
+
+DESCRIPTION:
+   k3c inspect [OPTIONS] NAME|ID [NAME|ID...]
+
+OPTIONS:
+   --format value  Pretty-print images using a Go template (default: "json")
+   --help, -h      show help (default: false)
+   
+NAME:
+   k3c events - Get real time events from the server
+
+USAGE:
+   k3c events [command options] [arguments...]
+
+DESCRIPTION:
+   k3c events [OPTIONS] 
+
+OPTIONS:
+   --format value  Format the output using the given Go template
+   --help, -h      show help (default: false)
+   
+NAME:
+   k3c daemon - containerd++ (cri, buildkit and k3c)
+
+USAGE:
+   k3c daemon [global options] command [command options] [arguments...]
+
+VERSION:
+   v1.3.4+k3c.2
+
+DESCRIPTION:
+   
+k3c daemon is containerd work-alike presenting the CRI, BuildKit, K3C and
+containerd APIs all on a single gRPC socket. It is meant to be a drop-in
+replacement for a CRI-enabled containerd with additional functionality on
+the backend to support the Docker work-alike frontend of k3c.
+
+COMMANDS:
+   config    information on the containerd config
+   publish   binary to publish events to containerd
+   oci-hook  provides a base for OCI runtime hooks to allow arguments to be injected.
+   help, h   Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --config value, -c value           path to the configuration file (default: "/etc/rancher/k3c/config.toml") [$K3C_CONFIG]
+   --log-level value, -l value        set the logging level [trace, debug, info, warn, error, fatal, panic]
+   --address value, -a value          address for containerd's GRPC server (default: "/run/k3c/k3c.sock") [$K3C_ADDRESS]
+   --root value                       containerd root directory (default: "/var/lib/rancher/k3c") [$K3C_ROOT]
+   --state value                      containerd state directory (default: "/run/k3c") [$K3C_STATE]
+   --bridge-name value                (default: "k3c0") [$K3C_BRIDGE_NAME]
+   --bridge-cidr value                (default: "172.18.0.0/16") [$K3C_BRIDGE_CIDR]
+   --bootstrap-image value            containerd-style image ref to install (default: "docker.io/rancher/k3c:v0.2.1-amd64") [$K3C_BOOTSTRAP_IMAGE]
+   --bootstrap-skip                   skip bootstrap install (default: false) [$K3C_BOOTSTRAP_SKIP]
+   --cni-bin value                     [$K3C_CNI_BIN]
+   --cni-netconf value                 [$K3C_CNI_NETCONF]
+   --sandbox-image value              containerd-style image ref for sandboxes (default: "docker.io/rancher/pause:3.1") [$K3C_SANDBOX_IMAGE]
+   --socket-gid value, --group value  gRPC socket gid (default: 0) [$K3C_SOCKET_GID]
+   --socket-uid value                 gRPC socket uid (default: 0) [$K3C_SOCKET_UID]
+   --help, -h                         show help
+   --version, -v                      print the version
+NAME:
+   k3c volume - Manage volumes
+
+USAGE:
+   k3c volume command [command options] [arguments...]
+
+COMMANDS:
+   ls       List volumes
+   rm       Remove one or more volumes
+   create   Create a volume
+   help, h  Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h     show help (default: false)
+   --version, -v  print the version (default: false)
+   

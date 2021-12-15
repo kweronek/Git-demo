@@ -251,7 +251,7 @@ Klonen von erstem Repository
 $ cd ..
 $ mkdir demo1b
 $ cd demo1b
-$ git clone ../demo1b .
+$ git clone ../demo1 .
 (...)
 $ ls
 $ git status

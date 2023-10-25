@@ -33,7 +33,7 @@
 	- [6.7. Rebasing](#67-rebasing)
 
 
-# 1. Grundlagen
+# 1. Grundlagen (A)
 
 Git ist ein dezentrales Versionsverwaltungssystem. Es erfasst verschieden Versionen der verwalteten Dateien in einem Repository und ermöglicht jederzeit zu alten bzew anderen Versionen zurückzukehren. Die Änderungen lassen sich außerdem zu anderen Repositorien übertragen bzw. von dort abrufen. Dies ermöglicht es git gleichzeitig als Werkzeug für Datensicherung und Kollaboration mehrerer Teammitglieder einzusetzen.
 
@@ -59,7 +59,7 @@ Modified files - Modified files sind Dateien im Working Tree, die zwar schon von
 Staging Area - Die Staging Area enthält Änderungen (Patches) aus dem Working Tree und dient dazu einen Commit vorzubereiten.
 
 
-# 2. Installation und Einrichtung
+# 2. Installation und Einrichtung (A)
 
 Für die Installation siehe:
 - [Linux/Unix](https://git-scm.com/download/linux)
@@ -99,7 +99,7 @@ Zum Ausnehmen von Dateien aus der Versionskontrolle könnten diese in eine Textd
 Die Metadaten der Versionskontrolle werden in dem Ordner .git gespeichert. Der .git Ordner darf daher nicht gelöscht werden.
 
 
-# 3. Lokale Versionsverwaltung
+# 3. Lokale Versionsverwaltung (A)
 
 ## 3.1. Erste Schritte
 
@@ -150,7 +150,7 @@ $ git status
 ```
 
 
-## 3.2. History und Logging
+## 3.2. History und Logging (A)
 
 Anzeigen der Commithistorie des aktuellen Branches
 ```sh
@@ -170,7 +170,7 @@ $ git show <commit ID>
 Anstelle der Commit-ID kann auch der Bezeichner `HEAD` für den ausgecheckten Commit verwendet werden. `HEAD~1` bezeichnet den Vorgänger von `HEAD`, `HEAD~2` den Vorgänger von `HEAD~1` usw.
 
 
-## 3.3. Wiederherstellung beschädigter Dateien und Rückgängigmachen von Änderungen
+## 3.3. Wiederherstellung beschädigter Dateien und Rückgängigmachen von Änderungen (B)
 
 Zurücksetzen von Dateien im Working Directory auf den Stand des Indexes
 ```sh
@@ -188,7 +188,7 @@ $ git revert [--no-commit] <commit> [<additional commits>]
 ```
 
 
-## 3.4. Demo 1
+## 3.4. Demo 1 (A)
 
 Erstes Repository
 ```sh
@@ -259,7 +259,7 @@ $ git status
 ```
 
 
-# 4. Dezentrale Versionsverwaltung und Git Hoster
+# 4. Dezentrale Versionsverwaltung und Git Hoster (B)
 
 Git basiert auf einem dezentralen Ansatz, bei dem jeder Client das gesamte Repository lokal vorhält. Dies ermöglicht nicht nur das einfache Erzeugen von lokalen Repositories sondern auch das Verknüpfen solcher mit einem oder mehreren entfernten Repositories.
 
@@ -396,7 +396,7 @@ $ git push origin master
 ```
 
 
-# 5. Versionsverwaltung im Team mit Branches
+# 5. Versionsverwaltung im Team mit Branches (C)
 
 ## 5.1. Erstellen von Branches
 
@@ -493,7 +493,7 @@ $ git push origin master
 ```
 
 
-# 6. Erweiterte Funktionen
+# 6. Erweiterte Funktionen (C)
 
 ## 6.1. Versioning/Releases
 

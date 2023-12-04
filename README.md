@@ -40,7 +40,7 @@ Git ist ein dezentrales Versionsverwaltungssystem. Es erfasst verschieden Versio
 Während git selbst primär ein Kommandozeilen-Tool ist, existieren diverse graphische Werkzeuge. Einige davon sind reine git-Oberflächen. Viele Programme, wie etwa die meisten Entwicklungsumgebungen, verfügen außerdem über eine integrierte Benutzeroberfläche. Wir behandeln hier lediglich die Kernkonzepte und die Kommandozeilenbefehle.
 
 Es existieren viele weitere meist englische Tutorials im Internet. Einige sind hier aufgeführt.
-- [Officielles Buch](https://git-scm.com/book/en/v2)
+- [Offizielles Buch](https://git-scm.com/book/en/v2)
 - [Arch Wiki](https://wiki.archlinux.org/index.php/Git)
 - [KBromans Tutorial](https://kbroman.org/github_tutorial/)
 
